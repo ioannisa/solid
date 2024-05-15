@@ -2,12 +2,12 @@ package solid1_s.bad
 
 //Single Responsibility Principle (SRP) with OTP Example
 fun main() {
-    val otp1 = OTPSender("email")
-    otp1.send("123456")
+    val otp1 = OTPSender()
+    otp1.send("123456", "email")
 }
 
-class OTPSender(private val strategy: String) {
-    fun send(otp: String) {
+class OTPSender() {
+    fun send(otp: String, strategy: String) {
         if (isValid(otp, strategy)) {
             println("[S] Submitting OTP -> $otp")
         }
@@ -17,7 +17,7 @@ class OTPSender(private val strategy: String) {
         return when (validationType) {
             "email" -> otp.length == 6 && otp.all { it.isDigit() }
             "phone" -> otp.length == 6 && otp.all { it.isDigit() } && otp.startsWith("123")
-            "bank"  ->  otp.length == 8 && otp.startsWith("123") && otp.all { it.isDigit() }
+            "bank"  ->  otp.length == 8 && otp.all { it.isDigit() } && otp.startsWith("541")
             else -> false
         }
     }
