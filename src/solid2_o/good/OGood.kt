@@ -4,13 +4,13 @@ package solid2_o.good
 fun main() {
     //val validator: OTPValidator = OTPEmailValidator()
     //val otp = OTPSender(validator)
-    val otp = OTPSender(OTPEmailValidator())
-    otp.send("123456")
+    val otp = OTPSender()
+    otp.send("123456", OTPEmailValidator())
 }
 
 
-class OTPSender(private val otpValidator: OTPValidator) {
-    fun send(otp: String) {
+class OTPSender() {
+    fun send(otp: String, otpValidator: OTPValidator) {
         if (otpValidator.isValid(otp)) {
             println("[O] Submitting OTP -> $otp")
         }
