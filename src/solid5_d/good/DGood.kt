@@ -2,24 +2,21 @@ package solid5_d.good
 
 // Dependency Inversion Principle (DIP)
 fun main() {
-    val payPalPayment: Payment = PayPalPayment()
-    val stripePayment: Payment = StripePayment()
-
-    val paymentProcessor1 = PaymentProcessor(payPalPayment)
+    val paymentProcessor1 = PaymentProcessor(PayPalPayment())
     paymentProcessor1.processPayment(100.0)
 
-    val paymentProcessor2 = PaymentProcessor(stripePayment)
+    val paymentProcessor2 = PaymentProcessor(StripePayment())
     paymentProcessor2.processPayment(200.0)
-}
-
-interface Payment {
-    fun pay(amount: Double)
 }
 
 class PaymentProcessor(private var paymentMethod: Payment) {
     fun processPayment(amount: Double) {
         paymentMethod.pay(amount)
     }
+}
+
+interface Payment {
+    fun pay(amount: Double)
 }
 
 class PayPalPayment : Payment {
