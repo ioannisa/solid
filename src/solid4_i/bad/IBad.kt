@@ -1,19 +1,18 @@
 package solid4_i.bad
 
 fun main() {
-    val sparrow = Sparrow()
-    val penguin = Penguin()
+    val eagle = Eagle()
     val duck = Duck()
+    val penguin = Penguin()
 
-    makeFlyableFly(sparrow)   // Flying high!
-    // makeFlyableFly(penguin) // Throws UnsupportedOperationException: Penguin cannot fly!
-    makeFlyableFly(duck)  // Flying low
+    makeFlyableFly(eagle)       // Flying super high!
+    makeFlyableFly(duck)        // Flying low
+    // makeFlyableFly(penguin)  // Empty implementation, does nothing or throws exception
 
-    // makeSwimmableSwim(sparrow) // Throws UnsupportedOperationException: Sparrow cannot swim!
-    makeSwimmableSwim(penguin) // Swimming fast!
-    makeSwimmableSwim(duck)  // swim slow
+    // makeSwimmableSwim(eagle) // Empty implementation, does nothing or throws exception
+    makeSwimmableSwim(duck)     // swim slow
+    makeSwimmableSwim(penguin)  // Swimming fast!
 }
-
 
 // Interface for bird actions
 interface BirdActions {
@@ -25,21 +24,17 @@ interface BirdActions {
 open class Bird
 
 // Subclass: Sparrow, which can fly but forced to implement swim
-class Sparrow : Bird(), BirdActions {
+class Eagle : Bird(), BirdActions {
     override fun fly() {
-        println("[I] Flying high!")
+        println("[I] Flying super high!")
     }
 
-    override fun swim() {
-        throw UnsupportedOperationException("[I] Sparrow cannot swim!")
-    }
+    override fun swim() { }
 }
 
 // Subclass: Penguin, which can swim but forced to implement fly
 class Penguin : Bird(), BirdActions {
-    override fun fly() {
-        throw UnsupportedOperationException("[I] Penguin cannot fly!")
-    }
+    override fun fly() { }
 
     override fun swim() {
         println("[I] Swimming fast!")

@@ -1,17 +1,17 @@
 package solid4_i.good
 
 fun main() {
-    val sparrow = Sparrow()
+    val eagle = Eagle()
     val penguin = Penguin()
     val duck = Duck()
 
-    makeFlyableFly(sparrow)   // Flying high!
-    // makeFlyableFly(penguin) // Compilation error: Penguin does not implement Flyable
-    makeFlyableFly(duck)  // Flying low
+    makeFlyableFly(eagle)        // Flying super high!
+    makeFlyableFly(duck)         // Flying low
+    // makeFlyableFly(penguin)   // Compilation error: Penguin does not implement Flyable
 
-    // makeSwimmableSwim(sparrow) // Compilation error: Sparrow does not implement Swimmable
-    makeSwimmableSwim(penguin) // Swimming fast!
-    makeSwimmableSwim(duck)  // Swimming slow
+    // makeSwimmableSwim(eagle)  // Compilation error: Sparrow does not implement Swimmable
+    makeSwimmableSwim(duck)      // Swimming slow
+    makeSwimmableSwim(penguin)   // Swimming fast!
 }
 
 // Interface for flyable actions
@@ -28,9 +28,9 @@ interface Swimmable {
 open class Bird
 
 // Subclass: Sparrow, which can fly
-class Sparrow : Bird(), Flyable {
+class Eagle : Bird(), Flyable {
     override fun fly() {
-        println("Flying high!")
+        println("Flying super high!")
     }
 }
 
