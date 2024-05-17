@@ -13,13 +13,22 @@ fun main() {
     //makeBirdFly(penguin)
 }
 
+// Function that expects a Flyable bird and calls fly
+fun makeBirdFly(flyable: Flyable) {
+    flyable.fly()
+}
+
 // Interface for flying behavior
 interface Flyable {
     fun fly()
 }
 
 // Base class
-open class Bird
+open class Bird {
+    open fun walk() {
+        println("[L] Walking!")
+    }
+}
 
 // Subclass: Sparrow, which can fly
 class Sparrow : Bird(), Flyable {
@@ -37,6 +46,10 @@ class Eagle : Bird(), Flyable {
 
 // Subclass: Duck, which can fly
 class Duck : Bird(), Flyable {
+    override fun walk() {
+        println("[L] Duck is walking funny")
+    }
+
     override fun fly() {
         println("[L] Eagle is Flying low!")
     }
@@ -44,8 +57,3 @@ class Duck : Bird(), Flyable {
 
 // Subclass: Penguin, which cannot fly
 class Penguin : Bird()
-
-// Function that expects a Flyable bird and calls fly
-fun makeBirdFly(flyable: Flyable) {
-    flyable.fly()
-}

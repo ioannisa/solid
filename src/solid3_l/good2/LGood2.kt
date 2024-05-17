@@ -3,7 +3,7 @@ package solid3_l.good2
 import java.util.*
 import kotlin.collections.ArrayList
 
-// Liskov Substitution using Lists
+// Liskov Substitution Principle (LSP)
 fun main() {
 
     val myList1: MutableList<String> = ArrayList<String>()
