@@ -1,4 +1,4 @@
-package solid3_l.good2
+package solid3_l
 
 import java.util.*
 import kotlin.collections.ArrayList

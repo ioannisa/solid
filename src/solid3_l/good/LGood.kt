@@ -2,15 +2,13 @@ package solid3_l.good
 
 // Liskov Substitution using Birds
 fun main() {
-    val sparrow = Sparrow()
     val eagle = Eagle()
     val duck = Duck()
     val penguin = Penguin()
 
-    makeBirdFly(sparrow)
-    makeBirdFly(eagle)
-    makeBirdFly(duck)
-    //makeBirdFly(penguin)
+    makeBirdFly(eagle)      // Flying super high!
+    makeBirdFly(duck)       // Flying low!
+    //makeBirdFly(penguin)    // code doesn't allow us to define this line
 }
 
 // Function that expects a Flyable bird and calls fly
@@ -27,13 +25,6 @@ interface Flyable {
 open class Bird {
     open fun walk() {
         println("[L] Walking!")
-    }
-}
-
-// Subclass: Sparrow, which can fly
-class Sparrow : Bird(), Flyable {
-    override fun fly() {
-        println("[L] Flying!")
     }
 }
 
@@ -56,4 +47,8 @@ class Duck : Bird(), Flyable {
 }
 
 // Subclass: Penguin, which cannot fly
-class Penguin : Bird()
+class Penguin : Bird() {
+    override fun walk() {
+        println("[L] Penguin is walking funny")
+    }
+}

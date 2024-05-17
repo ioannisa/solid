@@ -2,12 +2,10 @@ package solid3_l.bad
 
 // Liskov Substitution Principle (LSP)
 fun main() {
-    val sparrow = Bird()
     val eagle = Eagle()
     val duck = Duck()
     val penguin = Penguin()
 
-    makeBirdFly(sparrow)    // Flying!
     makeBirdFly(eagle)      // Flying super high!
     makeBirdFly(duck)       // Flying low!
     makeBirdFly(penguin)    // Exception: Penguins can't fly!
