@@ -34,7 +34,7 @@ class Eagle : Bird() {
 
 class Duck : Bird() {
     override fun walk() {
-        println("[L] Duck is walking funny")
+        println("[L] Duck is walking slow")
     }
 
     override fun fly() {
@@ -43,6 +43,10 @@ class Duck : Bird() {
 }
 
 class Penguin : Bird() {
+    override fun walk() {
+        println("[L] Penguin is walking funny")
+    }
+
     override fun fly() {
         throw UnsupportedOperationException("[L] Penguins can't fly!")
     }

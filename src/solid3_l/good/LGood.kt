@@ -1,6 +1,6 @@
 package solid3_l.good
 
-// Liskov Substitution using Birds
+// Liskov Substitution Principle (LSP)
 fun main() {
     val eagle = Eagle()
     val duck = Duck()
@@ -18,7 +18,9 @@ fun makeBirdFly(flyable: Flyable) {
 
 // Interface for flying behavior
 interface Flyable {
-    fun fly()
+    fun fly() {
+        println("[L] Flying!")
+    }
 }
 
 // Base class
@@ -31,18 +33,18 @@ open class Bird {
 // Subclass: Eagle, which can fly
 class Eagle : Bird(), Flyable {
     override fun fly() {
-        println("[L] Eagle is Flying supper high!")
+        println("[L] Flying super high!")
     }
 }
 
 // Subclass: Duck, which can fly
 class Duck : Bird(), Flyable {
     override fun walk() {
-        println("[L] Duck is walking funny")
+        println("[L] Duck is walking slow")
     }
 
     override fun fly() {
-        println("[L] Eagle is Flying low!")
+        println("[L] Duck is Flying low")
     }
 }
 
